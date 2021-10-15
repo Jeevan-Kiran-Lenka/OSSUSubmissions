@@ -1,7 +1,7 @@
-function Total({excercises1, excercises2, excercises3}) {
+function Total({parts}) {
     return (
         <div>
-            <p>Total Number of excercises - {excercises1 + excercises2 + excercises3}</p>
+            <p>Total Number of excercises - {parts[0].exercises + parts[1].exercises + parts[2].exercises}</p>
         </div>
     )
 }
