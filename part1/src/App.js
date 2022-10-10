@@ -1,4 +1,4 @@
-// Solution for 1.6
+// Solution for 1.7
 // Author: Jeevan-Kiran-Lenka
 
 import { useState } from "react"
@@ -17,6 +17,22 @@ const App = () => {
     setBad(bad + 1)
   }
 
+  const all = good + bad + neutral
+
+  const showAverage = () => {
+    if (all === 0) {
+      return 0
+    }
+    return (good * 1 + bad * -1) / all
+  }
+
+  const showPositive = () => {
+    if (all === 0) {
+      return 0
+    }
+    return (good / all) * 100
+  }
+
   return (
     <div>
       <h1>Give Feedback</h1>
@@ -29,6 +45,9 @@ const App = () => {
       <p>good {good}</p>
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
+      <p>all {good + neutral + bad}</p>
+      <p>average {showAverage()}</p>
+      <p>positive {showPositive()}%</p>
     </div>
   )
 }
