@@ -1,7 +1,37 @@
-// Solution for 1.6
+// Solution for 1.8
 // Author: Jeevan-Kiran-Lenka
 
 import { useState } from "react"
+
+const Statistics = ({ good, bad, neutral }) => {
+  const all = good + bad + neutral
+
+  const showAverage = () => {
+    if (all === 0) {
+      return 0
+    }
+    return (good * 1 + bad * -1) / all
+  }
+
+  const showPositive = () => {
+    if (all === 0) {
+      return 0
+    }
+    return (good / all) * 100
+  }
+
+  return (
+    <div>
+      <h1>Statistics</h1>
+      <p>good {good}</p>
+      <p>neutral {neutral}</p>
+      <p>bad {bad}</p>
+      <p>all {good + neutral + bad}</p>
+      <p>average {showAverage()}</p>
+      <p>positive {showPositive()}%</p>
+    </div>
+  )
+}
 
 const App = () => {
   // save clicks of each button to its own state
@@ -24,11 +54,7 @@ const App = () => {
       <button onClick={handleNeutral}>neutral</button>
       <button onClick={handleBad}>bad</button>
 
-      <h1>Statistics</h1>
-
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
+      <Statistics good={good} bad={bad} neutral={neutral} />
     </div>
   )
 }
