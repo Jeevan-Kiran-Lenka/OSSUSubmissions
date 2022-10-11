@@ -1,4 +1,4 @@
-// Solution for 1.7
+// Solution for 1.9
 // Author: Jeevan-Kiran-Lenka
 
 import { useState } from "react"
@@ -47,6 +47,10 @@ const App = () => {
     setBad(bad + 1)
   }
 
+  const all = () => {
+    return good + bad + neutral
+  }
+
   return (
     <div>
       <h1>Give Feedback</h1>
@@ -54,7 +58,13 @@ const App = () => {
       <button onClick={handleNeutral}>neutral</button>
       <button onClick={handleBad}>bad</button>
 
-      <Statistics good={good} bad={bad} neutral={neutral} />
+      {all > 0 ? (
+        <Statistics good={good} bad={bad} neutral={neutral} />
+      ) : (
+        <p>No feedback given</p>
+      )}
+
+      {/* <Statistics good={good} bad={bad} neutral={neutral} /> */}
     </div>
   )
 }

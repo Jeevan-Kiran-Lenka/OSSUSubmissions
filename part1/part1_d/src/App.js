@@ -47,6 +47,10 @@ const App = () => {
     setBad(bad + 1)
   }
 
+  const all = () => {
+    return good + bad + neutral
+  }
+
   return (
     <div>
       <h1>Give Feedback</h1>
@@ -54,7 +58,13 @@ const App = () => {
       <button onClick={handleNeutral}>neutral</button>
       <button onClick={handleBad}>bad</button>
 
-      <Statistics good={good} bad={bad} neutral={neutral} />
+      {all ? (
+        <Statistics good={good} bad={bad} neutral={neutral} />
+      ) : (
+        <p>Nothing</p>
+      )}
+
+      {/* <Statistics good={good} bad={bad} neutral={neutral} /> */}
     </div>
   )
 }
