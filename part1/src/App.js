@@ -9,17 +9,25 @@ const Button = ({ onClick, text }) => {
 
 const StatisticLine = ({ text, value }) => {
   return (
-    <div>
+    <table>
       {text === "positive" ? (
-        <p>
-          {text} {value}%
-        </p>
+        <tbody>
+          <tr>
+            <td>
+              {text} {value}%
+            </td>
+          </tr>
+        </tbody>
       ) : (
-        <p>
-          {text} {value}
-        </p>
+        <tbody>
+          <tr>
+            <td>
+              {text} {value}
+            </td>
+          </tr>
+        </tbody>
       )}
-    </div>
+    </table>
   )
 }
 
