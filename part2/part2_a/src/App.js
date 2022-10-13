@@ -1,8 +1,5 @@
-// const Part = ({part}) => {
-//   return (
-//     <li>{part.name}</li>
-//   )
-// }
+// Solution 2.1,2.2,2.3
+// Author - Jeevan Kiran Lenka
 
 const Total = ({ parts }) => {
   // const total = parts.reduce((s, p) => {
