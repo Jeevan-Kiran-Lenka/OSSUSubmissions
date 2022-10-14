@@ -1,10 +1,60 @@
-// Solution to 2.10
+// Solution to 2.9
 // Author: Jeevan Kiran Lenka
 
 import { useState } from "react"
-import Filter from "./components/Filter"
-import PersonForm from "./components/PersonForm"
-import Persons from "./components/Persons"
+
+const Name = ({ name, number }) => {
+  return (
+    <div>
+      {name} : {number}
+    </div>
+  )
+}
+
+const Filter = ({ value, handleChange }) => {
+  return (
+    <div>
+      Filter shown with
+      <input value={value} onChange={handleChange} />
+    </div>
+  )
+}
+
+const PersonForm = ({
+  newName,
+  newNumber,
+  handleNameChange,
+  handleNumberChange,
+  addPerson,
+}) => {
+  return (
+    <div>
+      <form onSubmit={addPerson}>
+        <div>
+          name: <input value={newName} onChange={handleNameChange} />
+        </div>
+        <div>
+          number: <input value={newNumber} onChange={handleNumberChange} />
+        </div>
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+    </div>
+  )
+}
+
+const Persons = ({ persons }) => {
+  return (
+    <div>
+      <h2>Numbers</h2>
+      {/* {console.log(persons)} */}
+      {persons.map((person) => (
+        <Name key={person.id} name={person.name} number={person.number} />
+      ))}
+    </div>
+  )
+}
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -23,8 +73,8 @@ const App = () => {
 
     const nameObject = {
       name: newName,
-      number: newNumber,
       id: persons.length + 1,
+      number: newNumber,
     }
 
     setNewName("")
@@ -39,6 +89,15 @@ const App = () => {
     } else {
       setPersons(persons.concat(nameObject))
     }
+  }
+
+  const handleNameChange = (event) => {
+    // console.log(event.target.value)
+    setNewName(event.target.value)
+  }
+
+  const handleNumberChange = (event) => {
+    setNewNumber(event.target.value)
   }
 
   const personsToshow =
@@ -58,8 +117,8 @@ const App = () => {
       <PersonForm
         name={newName}
         number={newNumber}
-        handleNameChange={({ target }) => setNewName(target.value)}
-        handleNumberChange={({ target }) => setNewNumber(target.value)}
+        handleNameChange={handleNameChange}
+        handleNumberChange={handleNumberChange}
         addPerson={addPerson}
       />
       <Persons persons={personsToshow} />
