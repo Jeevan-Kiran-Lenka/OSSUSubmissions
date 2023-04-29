@@ -47,7 +47,7 @@ const App = () => {
           .update(existingPerson.id, { ...existingPerson, number: newNumber })
           .then((savedPerson) => {
             setPersons(
-              persons.map((p) => (p.id === existingPerson.id ? savedPerson : p))
+              persons.map((p) => (p.id !== existingPerson.id ? p : savedPerson))
             )
             notify(`Updated info of ${savedPerson.name}`)
           })
@@ -59,7 +59,9 @@ const App = () => {
             setPersons(persons.filter((p) => p.id !== existingPerson.id))
           })
 
-        return
+        // return
+        setNewName("")
+        setNewNumber("")
       }
     }
 
