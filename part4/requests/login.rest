@@ -1,0 +1,26 @@
+# POST http://localhost:3003/api/login
+# Content-Type: application/json
+
+# {
+#     "username": "alpha",
+#     "password": "alpha"
+# }
+
+# POST http://localhost:3003/api/blogs
+# Content-Type: application/json
+# Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFscGhhIiwiaWQiOiI2NDYzOWQxN2M4MjY1OWY5ZWYxNjA2ZTkiLCJpYXQiOjE2ODQzMzQyOTl9.9Mz7z7Qy-w7mlSbi_0CINg6WgWugRcu9ftCEcDPaR7E
+
+# {
+#   "title": "Token Authentication",
+#   "author": "Alpha Clasher",
+#   "url": "https://fullstackopen.com/en/part4/token_authentication#problems-of-token-based-authentication",
+#   "likes": 50
+# }
+
+DELETE  http://localhost:3003/api/blogs/6464e7f9798d28309e11adc3
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFscGhhIiwiaWQiOiI2NDYzOWQxN2M4MjY1OWY5ZWYxNjA2ZTkiLCJpYXQiOjE2ODQzMzQyOTl9.9Mz7z7Qy-w7mlSbi_0CINg6WgWugRcu9ftCEcDPaR7E
+
+{
+
+}
